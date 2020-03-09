@@ -39,7 +39,7 @@ function App() {
         <input
           onChange={handleRangeChange}
           type="range"
-          name="heading-sizer" min="1" max="10" id="heading-sizer" value={value} />
+          name="heading-sizer" min="1" max="100" id="heading-sizer" value={value} />
         <button onClick={handleToggleClick}>
           Toggle
         </button>
@@ -68,7 +68,7 @@ function App() {
   function handleRangeChange(e) {
     if (!h2) return;
     // const fontSize = getCurrentFontSize(h2.current);
-    const inputVal = parseInt(e.target.value);
+    const inputVal = parseInt(e.target.value) <= 5 ? 1 : parseInt(e.target.value) * 0.1;
     // const newFontSize = `${fontSize * inputVal}px`;
     updateValue(inputVal);
   }
