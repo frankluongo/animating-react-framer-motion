@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
 import Menu from "./Menu";
@@ -9,7 +10,7 @@ import green from "./green.png";
 
 function App() {
   return (
-    <div>
+    <motion.div animate={{ scale: 2 }}>
       <Header>
         <Menu />
         <h1>Header</h1>
@@ -35,7 +36,7 @@ function App() {
           </Card>
         </CardGrid>
       </Container>
-    </div>
+    </motion.div>
   );
 }
 
