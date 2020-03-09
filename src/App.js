@@ -10,7 +10,11 @@ import green from "./green.png";
 
 function App() {
   return (
-    <motion.div animate={{ scale: 2 }}>
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
       <Header>
         <Menu />
         <h1>Header</h1>
