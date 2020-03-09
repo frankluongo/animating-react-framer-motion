@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
@@ -9,7 +9,8 @@ import black from "./black.png";
 import green from "./green.png";
 
 function App() {
-  const [value, updateValue] = useState(0);
+  const h2 = useRef(null);
+  const [value, updateValue] = useState(1);
   const [isToggled, updateToggle] = useState(1);
 
   return (
@@ -26,8 +27,9 @@ function App() {
         <AnimatePresence>
           {isToggled && (
             <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ x: value, opacity: isToggled }}
+              ref={h2}
+              initial={{ fontSize: '24px', opacity: 0 }}
+              animate={{ fontSize: `${value * 24}px`, opacity: isToggled }}
               exit={{ opacity: 0 }}
             >
               Super Cool
@@ -37,7 +39,7 @@ function App() {
         <input
           onChange={handleRangeChange}
           type="range"
-          name="heading-sizer" min="-100" max="100" id="heading-sizer" value={value} />
+          name="heading-sizer" min="1" max="10" id="heading-sizer" value={value} />
         <button onClick={handleToggleClick}>
           Toggle
         </button>
@@ -64,11 +66,23 @@ function App() {
   );
 
   function handleRangeChange(e) {
-    updateValue(parseInt(e.target.value));
+    if (!h2) return;
+    // const fontSize = getCurrentFontSize(h2.current);
+    const inputVal = parseInt(e.target.value);
+    // const newFontSize = `${fontSize * inputVal}px`;
+    updateValue(inputVal);
   }
 
   function handleToggleClick() {
     !!isToggled ? updateToggle(0) : updateToggle(1)
+  }
+
+  //
+  // Helpers
+  //
+
+  function getCurrentFontSize(element) {
+    return parseFloat(getComputedStyle(element)["font-size"].replace('px', ''));
   }
 }
 
