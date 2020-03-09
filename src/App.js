@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
@@ -9,6 +9,9 @@ import black from "./black.png";
 import green from "./green.png";
 
 function App() {
+  const [value, updateValue] = useState(0);
+  const [isToggled, updateToggle] = useState(1);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }}
@@ -20,7 +23,16 @@ function App() {
         <h1>Header</h1>
       </Header>
       <Container>
-        <h2>Super Cool</h2>
+        <motion.h2 animate={{ x: value, opacity: isToggled }}>
+          Super Cool
+        </motion.h2>
+        <input
+          onChange={handleRangeChange}
+          type="range"
+          name="heading-sizer" min="-100" max="100" id="heading-sizer" value={value} />
+        <button onClick={handleToggleClick}>
+          Toggle
+        </button>
         <CardGrid>
           <Card style={{ background: "var(--purp)" }}>
             <h3>Some card</h3>
@@ -42,6 +54,14 @@ function App() {
       </Container>
     </motion.div>
   );
+
+  function handleRangeChange(e) {
+    updateValue(parseInt(e.target.value));
+  }
+
+  function handleToggleClick() {
+    !!isToggled ? updateToggle(0) : updateToggle(1)
+  }
 }
 
 export default App;
