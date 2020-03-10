@@ -7,9 +7,11 @@ import blue from "./blue.png";
 import purp from "./purp.png";
 import black from "./black.png";
 import green from "./green.png";
+import Modal from "./Components/Modal";
 
 function App() {
   const h2 = useRef(null);
+  const [modalVisible, toggleModalVisibility] = useState(false)
   const [value, updateValue] = useState(1);
   const [isToggled, updateToggle] = useState(1);
 
@@ -43,22 +45,32 @@ function App() {
         <button onClick={handleToggleClick}>
           Toggle
         </button>
+
+        <section>
+          <Modal visibilityState={modalVisible} updateVisibilityState={toggleModalVisibility}>
+            This is the modal content
+          </Modal>
+          <button onClick={() => toggleModalVisibility(!modalVisible)}>
+            Toggle Modal
+          </button>
+        </section>
+
         <CardGrid>
           <Card style={{ background: "var(--purp)" }}>
             <h3>Some card</h3>
-            <img src={purp} />
+            <img src={purp} alt="Illustration" />
           </Card>
           <Card style={{ background: "var(--blue)" }}>
             <h3>Some card</h3>
-            <img src={blue} />
+            <img src={blue} alt="Illustration" />
           </Card>
           <Card style={{ background: "var(--black)" }}>
             <h3>Some card</h3>
-            <img src={black} />
+            <img src={black} alt="Illustration" />
           </Card>
           <Card style={{ background: "var(--green)" }}>
             <h3>Some card</h3>
-            <img src={green} />
+            <img src={green} alt="Illustration" />
           </Card>
         </CardGrid>
       </Container>
@@ -81,9 +93,9 @@ function App() {
   // Helpers
   //
 
-  function getCurrentFontSize(element) {
-    return parseFloat(getComputedStyle(element)["font-size"].replace('px', ''));
-  }
+  // function getCurrentFontSize(element) {
+  //   return parseFloat(getComputedStyle(element)["font-size"].replace('px', ''));
+  // }
 }
 
 export default App;
