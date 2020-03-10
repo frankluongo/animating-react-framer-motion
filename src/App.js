@@ -8,6 +8,7 @@ import purp from "./purp.png";
 import black from "./black.png";
 import green from "./green.png";
 import Modal from "./Components/Modal";
+import Accordion from "./Components/Accordion";
 
 function App() {
   const h2 = useRef(null);
@@ -73,6 +74,12 @@ function App() {
             <img src={green} alt="Illustration" />
           </Card>
         </CardGrid>
+
+        <section>
+          <Accordion />
+        </section>
+
+
       </Container>
     </motion.div>
   );

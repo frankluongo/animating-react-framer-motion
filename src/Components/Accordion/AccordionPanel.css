@@ -1,0 +1,22 @@
+.accordion-panel__toggle {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+
+  font-size: 1rem;
+  text-align: left;
+
+  background-color: #eee;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-panel__content {
+  overflow: hidden;
+}
+
+.accordion-panel-content__inner {
+  padding: 1rem;
+}
