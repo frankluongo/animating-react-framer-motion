@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Container, Header } from "./Elements";
+import { Container, Header } from "../Elements";
 import "./App.css";
-import Menu from "./Menu";
-import Modal from "./Components/Modal";
-import Accordion from "./Components/Accordion";
-import Heading from "./Components/Heading";
-import Cards from "./Components/Cards";
-import KeyFrameTest from "./Components/KeyFrameTest";
+import Menu from "../Menu";
+import Modal from "../Modal";
+import Accordion from "../Accordion";
+import Heading from "../Heading";
+import Cards from "../Cards";
+import KeyFrameTest from "../KeyFrameTest";
 
 function App() {
   const [modalVisible, toggleModalVisibility] = useState(false)
