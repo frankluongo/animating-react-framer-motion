@@ -48,14 +48,6 @@ function App() {
       </Container>
     </motion.div>
   );
-
-  //
-  // Helpers
-  //
-
-  // function getCurrentFontSize(element) {
-  //   return parseFloat(getComputedStyle(element)["font-size"].replace('px', ''));
-  // }
 }
 
 export default App;
