@@ -3,6 +3,12 @@ import { AnimatePresence, motion } from "framer-motion"
 
 import "./AccordionPanel.css"
 
+
+const accVariants = {
+  closed: { height: 0, opacity: 0 },
+  open: { height: 'auto', opacity: 1 },
+}
+
 const AccordionPanel = ({ panel }) => {
   const [isOpen, toggleIsOpen] = useState(false);
 
@@ -15,9 +21,10 @@ const AccordionPanel = ({ panel }) => {
         {isOpen && (
           <motion.div
             className="accordion-panel__content"
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
-            exit={{ height: 0 }}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={accVariants}
           >
             <div className="accordion-panel-content__inner">
               {panel.content}
