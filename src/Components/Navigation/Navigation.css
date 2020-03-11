@@ -1,0 +1,35 @@
+.nav {
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+
+  height: 100vh;
+  max-width: 40rem;
+  padding: 2rem;
+  width: 90vw;
+
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.nav-list__item {
+  margin-bottom: 2rem;
+}
+
+.nav-list__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.nav-list-item__link {
+  color: #333;
+  font-size: 2rem;
+  text-decoration: none;
+}

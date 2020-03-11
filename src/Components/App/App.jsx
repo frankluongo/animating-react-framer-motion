@@ -8,9 +8,11 @@ import Accordion from "../Accordion";
 import Heading from "../Heading";
 import Cards from "../Cards";
 import KeyFrameTest from "../KeyFrameTest";
+import Navigation from "../Navigation";
 
 function App() {
   const [modalVisible, toggleModalVisibility] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
     <motion.div
@@ -20,7 +22,8 @@ function App() {
     >
 
       <Header>
-        <Menu />
+        <Menu clickHandler={() => setIsNavOpen(true)} />
+        <Navigation isNavOpen={isNavOpen} closeBtnHandler={() => setIsNavOpen(false)} />
         <h1>Header</h1>
       </Header>
       <Container>
