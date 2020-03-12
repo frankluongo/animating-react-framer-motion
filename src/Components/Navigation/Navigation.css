@@ -46,6 +46,8 @@
   padding: 0;
 
   list-style: none;
+
+  transform-origin: top left;
 }
 
 .nav-list__item {

@@ -19,8 +19,18 @@ const linkVariants = {
   open: {
     y: 0,
     opacity: 1,
+  },
+}
+
+const listVariants = {
+  closed: { scale: 1 },
+  open: {
+    scale: 1.2,
     transition: {
-      delay: 0.2
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+      staggerDirection: 1, // 1 is forwards, -1 is backwards
+      when: 'afterChildren' // "afterChildren" or "beforeChildren"
     }
   },
 }
@@ -48,9 +58,9 @@ const Navigation = ({ closeBtnHandler, isNavOpen, links }) => {
           &times;
         </span>
       </button>
-      <ul className="nav__list">
+      <motion.ul className="nav__list" variants={listVariants}>
         {links.map((link, index) => <NavLink link={link} key={index} />)}
-      </ul>
+      </motion.ul>
     </motion.nav>
   )
 }
