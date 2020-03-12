@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { motion } from "framer-motion"
+
 
 export const Header = styled.header`
   background: var(--black);
@@ -24,7 +26,7 @@ export const CardGrid = styled.div`
   grid-gap: 20px;
 `;
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
   border-radius: 15px;
   padding: 20px;
   color: white;

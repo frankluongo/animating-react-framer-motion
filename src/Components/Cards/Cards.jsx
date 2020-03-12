@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { CardGrid, Card } from "../Elements";
+import { CardGrid } from "../Elements";
+
+import SingleCard from "./SingleCard"
 
 import blue from "./Images/blue.png";
 import purp from "./Images/purp.png";
@@ -10,22 +12,22 @@ import green from "./Images/green.png";
 const Cards = () => {
   return (
     <CardGrid>
-      <Card style={{ background: "var(--purp)" }}>
-        <h3>Some card</h3>
-        <img src={purp} alt="Illustration" />
-      </Card>
-      <Card style={{ background: "var(--blue)" }}>
-        <h3>Some card</h3>
-        <img src={blue} alt="Illustration" />
-      </Card>
-      <Card style={{ background: "var(--black)" }}>
-        <h3>Some card</h3>
-        <img src={black} alt="Illustration" />
-      </Card>
-      <Card style={{ background: "var(--green)" }}>
-        <h3>Some card</h3>
-        <img src={green} alt="Illustration" />
-      </Card>
+      <SingleCard
+        bgColor="var(--purp)"
+        image={purp}
+      />
+      <SingleCard
+        bgColor="var(--blue)"
+        image={blue}
+      />
+      <SingleCard
+        bgColor="var(--black)"
+        image={black}
+      />
+      <SingleCard
+        bgColor="var(--green)"
+        image={green}
+      />
     </CardGrid>
   )
 }
