@@ -35,7 +35,12 @@ const MotionValueTest = () => {
   function handleDragEnd(_, { point }) {
     if (Math.abs(point.x) >= 200) {
       setIsCardActive(false);
+      setTimeout(reEnableMotionTransitionTest, 2000);
     }
+  }
+
+  function reEnableMotionTransitionTest() {
+    setIsCardActive(true);
   }
 };
 
