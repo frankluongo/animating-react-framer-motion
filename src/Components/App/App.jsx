@@ -10,6 +10,7 @@ import Cards from "../Cards";
 import KeyFrameTest from "../KeyFrameTest";
 import Navigation from "../Navigation";
 import MotionValueTest from "../MotionValueTest";
+import Squares from "../Squares";
 
 function App() {
   const [modalVisible, toggleModalVisibility] = useState(false);
@@ -55,6 +56,11 @@ function App() {
         <section className="section">
           <Cards />
         </section>
+
+        <section className="section">
+          <Squares />
+        </section>
+
         <section className="section">
           <Accordion />
         </section>

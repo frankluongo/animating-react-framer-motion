@@ -1,0 +1,23 @@
+.squares-content__button {
+  margin-bottom: 1rem;
+  padding: 1rem;
+
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--black);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out;
+}
+
+.squares-content__button:hover {
+  background-color: var(--blue);
+}
