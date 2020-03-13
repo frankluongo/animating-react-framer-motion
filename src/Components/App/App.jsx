@@ -9,10 +9,11 @@ import Heading from "../Heading";
 import Cards from "../Cards";
 import KeyFrameTest from "../KeyFrameTest";
 import Navigation from "../Navigation";
+import MotionValueTest from "../MotionValueTest";
 
 function App() {
-  const [modalVisible, toggleModalVisibility] = useState(false)
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [modalVisible, toggleModalVisibility] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <motion.div
@@ -20,10 +21,12 @@ function App() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
-
       <Header>
         <Menu clickHandler={() => setIsNavOpen(true)} />
-        <Navigation isNavOpen={isNavOpen} closeBtnHandler={() => setIsNavOpen(false)} />
+        <Navigation
+          isNavOpen={isNavOpen}
+          closeBtnHandler={() => setIsNavOpen(false)}
+        />
         <h1>Header</h1>
       </Header>
       <Container>
@@ -35,7 +38,14 @@ function App() {
         </section>
 
         <section className="section">
-          <Modal visibilityState={modalVisible} updateVisibilityState={toggleModalVisibility}>
+          <MotionValueTest />
+        </section>
+
+        <section className="section">
+          <Modal
+            visibilityState={modalVisible}
+            updateVisibilityState={toggleModalVisibility}
+          >
             This is the modal content
           </Modal>
           <button onClick={() => toggleModalVisibility(!modalVisible)}>
