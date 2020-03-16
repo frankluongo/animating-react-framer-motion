@@ -7,18 +7,18 @@ import { COLORS } from "../../constants";
 import "./Slideshow.css";
 
 const variants = {
-  enter: {
+  enter: direction => ({
     opacity: 0,
-    x: 1000
-  },
+    x: direction > 0 ? 1000 : -1000
+  }),
   center: {
     opacity: 1,
     x: 0
   },
-  exit: {
+  exit: direction => ({
     opacity: 0,
-    x: -1000
-  }
+    x: direction > 0 ? -1000 : 1000
+  })
 };
 
 const Slideshow = () => {
@@ -27,21 +27,46 @@ const Slideshow = () => {
 
   return (
     <section className="slideshow">
-      <AnimatePresence>
-        <motion.div
-          key={page}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.75}
-          onDragEnd={handleDragEnd}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          variants={variants}
-          style={{ background: COLORS[index] }}
-          className="slideshow__slide"
-        />
-      </AnimatePresence>
+      <div className="slideshow__slides-wrapper">
+        <AnimatePresence custom={direction}>
+          <motion.div
+            key={page}
+            custom={direction}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.75}
+            onDragEnd={handleDragEnd}
+            onPanStart={handlePanStart}
+            onPanEnd={handlePanEnd}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            variants={variants}
+            style={{ background: COLORS[index] }}
+            className="slideshow__slide"
+          />
+        </AnimatePresence>
+      </div>
+      <div className="slideshow__controls">
+        <button
+          aria-label="View Previous Slide"
+          className="slideshow-controls__control slideshow-controls__control--prev"
+          onClick={() => paginate(1)}
+        >
+          <span role="img" aria-label="View Previous Slide">
+            ⬅️
+          </span>
+        </button>
+        <button
+          aria-label="View Next Slide"
+          className="slideshow-controls__control slideshow-controls__control--next"
+          onClick={() => paginate(-1)}
+        >
+          <span role="img" aria-label="View Next Slide">
+            ➡️
+          </span>
+        </button>
+      </div>
     </section>
   );
 
@@ -59,6 +84,12 @@ const Slideshow = () => {
       paginate(1);
       return;
     }
+  }
+  function handlePanStart({ target }) {
+    target.classList.add("slideshow__slide--active");
+  }
+  function handlePanEnd({ target }) {
+    target.classList.remove("slideshow__slide--active");
   }
   //
   // Actions
