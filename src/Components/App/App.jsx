@@ -11,6 +11,7 @@ import KeyFrameTest from "../KeyFrameTest";
 import Navigation from "../Navigation";
 import MotionValueTest from "../MotionValueTest";
 import Squares from "../Squares";
+import Slideshow from "../Slideshow";
 
 function App() {
   const [modalVisible, toggleModalVisibility] = useState(false);
@@ -31,6 +32,10 @@ function App() {
         <h1>Header</h1>
       </Header>
       <Container>
+        <section className="section">
+          <Slideshow />
+        </section>
+
         <section className="section">
           <Heading />
         </section>

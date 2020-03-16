@@ -6,4 +6,4 @@ const COLORS = [
   "var(--green)"
 ];
 
-export default COLORS;
+export { COLORS };

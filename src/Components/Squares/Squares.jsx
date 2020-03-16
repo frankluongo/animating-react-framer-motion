@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { shuffle } from "lodash";
 
 import "./Squares.css";
-import COLORS from "./colors";
+import { COLORS } from "../../constants";
 import Square from "./Square";
 
 const Squares = ({ colors }) => {

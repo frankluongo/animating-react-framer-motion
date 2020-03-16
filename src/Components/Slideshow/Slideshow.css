@@ -1,0 +1,13 @@
+.slideshow {
+  position: relative;
+  height: 500px;
+}
+
+.slideshow__slide {
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  height: 400px;
+  width: 100%;
+}
